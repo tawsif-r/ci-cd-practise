@@ -1,0 +1,32 @@
+name: Test project
+
+on:
+    push:
+        branches: [ "main" ]
+    pull_request:
+        branches: [ "main" ]
+        
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            # 1. checkout your repo
+            - name: Checkout code
+              uses: actions/checkout@v4
+            
+            # 2. Setup python
+            - name: Setup Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: '3.11'
+
+            # 3. Verify Python Installation
+            - name: Check Python Version
+              run: python --version
+
+            # 4. Run a simple python command
+            - name: Run a test script
+              run: python main.py
+        
+
+
