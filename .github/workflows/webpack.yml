@@ -26,3 +26,7 @@ jobs:
       run: |
         npm install
         npx webpack
+
+    - name: Run script
+      run: |
+          node node_test.ts
